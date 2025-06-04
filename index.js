@@ -1,3 +1,6 @@
+// how to make empty node app  :  npm init => node pakg manager se ak application ko initialize krna 
+ 
+  
 require("dotenv").config();
 
 const express = require("express");
@@ -15,3 +18,4 @@ app.get("/login", (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening on port ${process.env.PORT}`);
 });
+                                                 
