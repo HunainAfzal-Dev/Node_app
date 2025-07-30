@@ -19,6 +19,12 @@ app.get('/jokes', (req, res) => {
     res.send(jokes)
 })
 
+// get a list of 5 jokes
+app.get('/', (req, res) => { 
+
+    res.send("Home Page")
+})
+
 
 app.listen(port, ()=> {
     console.log(`server is running on port ${port}`);
