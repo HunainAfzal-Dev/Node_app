@@ -19,7 +19,7 @@ app.get('/jokes', (req, res) => {
     res.send(jokes)
 })
 
-// get a list of 5 jokes
+
 app.get('/', (req, res) => { 
 
     res.send("Home Page")
