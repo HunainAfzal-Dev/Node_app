@@ -1,11 +1,11 @@
+
 import express from 'express';
-
+import cors from 'cors';
 const port = process.env.PORT || 3000;
-
 const app = express();
-// app.get('/', (req, res) => {
-//     res.send('server is running');
-// });
+
+app.use(cors())
+
 
 // get a list of 5 jokes
 app.get('/jokes', (req, res) => {       
@@ -19,13 +19,11 @@ app.get('/jokes', (req, res) => {
     res.send(jokes)
 })
 
-
 app.get('/', (req, res) => { 
 
     res.send("Home Page")
 })
 
-
 app.listen(port, ()=> {
-    console.log(`server is running on port ${port}`);
+    console.log(`server is running on port . ${port}`);
 })

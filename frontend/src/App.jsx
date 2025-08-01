@@ -6,12 +6,15 @@ import { useEffect } from 'react'
 function App() {
   const [jokes, setJokes] = useState([])
   useEffect (() => { 
-    axios.get('https://localhost:3000.com/jokes',) 
-    .then(response => {
+    axios.get('http://localhost:3000/jokes',) 
+    .then((response) => {
+    console.log(response.data);
       setJokes(response.data)
     })
-  })
-
+    .catch((error) => {
+      console.error(error);
+      });
+  },[])
 
 
   return (
@@ -19,12 +22,12 @@ function App() {
     <div>
       Jokes: {jokes.length}
     </div>
-    {jokes.map((joke , index ) => {
+    {jokes.map((joke , index ) => (
       <div key={joke.id}>
         <h2> {joke.title} </h2>
         <p> {joke.joke} </p>
       </div>
-    })}
+    ))}
     </>
   )
 }
