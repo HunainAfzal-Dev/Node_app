@@ -19,10 +19,10 @@ function App() {
     <div>
       Jokes: {jokes.length}
     </div>
-    {jokes.map((joke , index) => {
+    {jokes.map((joke , index ) => {
       <div key={joke.id}>
-        <h2> {jokes.title} </h2>
-        <p> {jokes.content} </p>
+        <h2> {joke.title} </h2>
+        <p> {joke.joke} </p>
       </div>
     })}
     </>
