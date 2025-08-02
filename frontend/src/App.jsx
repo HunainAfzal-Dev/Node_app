@@ -3,6 +3,8 @@ import './App.css'
 import axios from 'axios'
 import { useEffect } from 'react'
 
+
+
 function App() {
   const [jokes, setJokes] = useState([])
   useEffect (() => { 
@@ -22,7 +24,7 @@ function App() {
     <div>
       Jokes: {jokes.length}
     </div>
-    {jokes.map((joke , index ) => (
+    {jokes.map((joke ) => (
       <div key={joke.id}>
         <h2> {joke.title} </h2>
         <p> {joke.joke} </p>
