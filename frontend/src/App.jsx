@@ -4,7 +4,6 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 
-
 function App() {
   const [jokes, setJokes] = useState([])
   useEffect (() => { 
@@ -17,7 +16,6 @@ function App() {
       console.error(error);
       });
   },[])
-
 
   return (
     <>
