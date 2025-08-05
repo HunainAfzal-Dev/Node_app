@@ -3,15 +3,26 @@ import axios from 'axios'
 
 function App() {
   const [jokes, setJokes] = useState([])
+  const [about, setAbout] = useState(null)
+  const [contact, setContact] = useState(null)
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     axios.get('/api/jokes')
-      .then((response) => {
-        setJokes(response.data)
-      })
-      .catch((error) => {
-        console.error(error)
-      });
+      .then((res) => setJokes(res.data))
+      .catch((err) => console.error(err))
+
+    axios.get('/api/about')
+      .then((res) => setAbout(res.data))
+      .catch((err) => console.error(err))
+
+    axios.get('/api/contact')
+      .then((res) => setContact(res.data))
+      .catch((err) => console.error(err))
+
+    axios.get('/api/products')
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.error(err))
   }, [])
 
   return (
@@ -37,21 +48,18 @@ function App() {
           animation: fadeIn 1s ease-in-out;
         }
 
-        .subheading {
-          font-size: 1.2rem;
-          margin-bottom: 30px;
-          color: #555;
-          animation: fadeIn 1.3s ease-in-out;
+        .section {
+          margin: 40px 0;
         }
 
-        .joke-grid {
+        .card-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 25px;
           animation: fadeIn 1.5s ease-in-out;
         }
 
-        .joke-card {
+        .card {
           background: white;
           border-radius: 12px;
           padding: 25px;
@@ -60,18 +68,17 @@ function App() {
           cursor: pointer;
         }
 
-        .joke-card h2 {
+        .card h2 {
           margin-top: 0;
           color: #007acc;
         }
 
-        .joke-card p {
+        .card p {
           margin: 10px 0 0;
           color: #444;
-          font-size: 1rem;
         }
 
-        .joke-card:hover {
+        .card:hover {
           transform: translateY(-10px);
           box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
@@ -90,15 +97,50 @@ function App() {
 
       <div className="app-container">
         <h1 className="heading">😂 Random Jokes</h1>
-        <p className="subheading">Total Jokes: {jokes.length}</p>
+        <div className="section">
+          <p>Total Jokes: {jokes.length}</p>
+          <div className="card-grid">
+            {jokes.map((joke) => (
+              <div key={joke.id} className="card">
+                <h2>{joke.title}</h2>
+                <p>{joke.joke}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <div className="joke-grid">
-          {jokes.map((joke) => (
-            <div key={joke.id} className="joke-card">
-              <h2>{joke.title}</h2>
-              <p>{joke.joke}</p>
+        <div className="section">
+          <h1 className="heading">📖 About Us</h1>
+          {about && (
+            <div className="card">
+              <p><strong>Message:</strong> {about.message}</p>
+              <p><strong>Version:</strong> {about.version}</p>
+              <p><strong>Author:</strong> {about.author}</p>
             </div>
-          ))}
+          )}
+        </div>
+
+        <div className="section">
+          <h1 className="heading">📞 Contact Info</h1>
+          {contact && (
+            <div className="card">
+              <p><strong>Email:</strong> {contact.email}</p>
+              <p><strong>Phone:</strong> {contact.phone}</p>
+              <p><strong>Address:</strong> {contact.address}</p>
+            </div>
+          )}
+        </div>
+
+        <div className="section">
+          <h1 className="heading">🛒 Products</h1>
+          <div className="card-grid">
+            {products.map((product) => (
+              <div key={product.id} className="card">
+                <h2>{product.name}</h2>
+                <p>Price: {product.price}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
