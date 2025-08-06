@@ -87,9 +87,8 @@ function App() {
           color: #333;
         }
       `}</style>
-
       <div className="app-container">
-        <h1 className="heading">😂 Random Jokes</h1>
+        <h1 className="heading">😂Random Jokes</h1>
         <div className="section">
           <h2>Total Jokes: {jokes.length}</h2>
           <div className="card-grid">
