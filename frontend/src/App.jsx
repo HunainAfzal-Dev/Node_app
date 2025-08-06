@@ -8,101 +8,94 @@ function App() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    axios.get('/api/jokes')
-      .then((res) => setJokes(res.data))
-      .catch((err) => console.error(err))
-
-    axios.get('/api/about')
-      .then((res) => setAbout(res.data))
-      .catch((err) => console.error(err))
-
-    axios.get('/api/contact')
-      .then((res) => setContact(res.data))
-      .catch((err) => console.error(err))
-
-    axios.get('/api/products')
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.error(err))
+    axios.get('/api/jokes').then(res => setJokes(res.data)).catch(console.error)
+    axios.get('/api/about').then(res => setAbout(res.data)).catch(console.error)
+    axios.get('/api/contact').then(res => setContact(res.data)).catch(console.error)
+    axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error)
   }, [])
 
   return (
     <>
       <style>{`
+        * {
+          box-sizing: border-box;
+        }
+
         body {
           margin: 0;
-          font-family: 'Segoe UI', sans-serif;
-          background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-          color: #333;
+          font-family: 'Inter', sans-serif;
+          background: linear-gradient(120deg, #f9f9f9, #e0eafc);
+          color: #2c3e50;
         }
 
         .app-container {
-          padding: 40px 20px;
+          padding: 50px 20px;
           max-width: 1200px;
           margin: auto;
-          text-align: center;
         }
 
         .heading {
-          font-size: 3rem;
-          margin-bottom: 10px;
-          animation: fadeIn 1s ease-in-out;
+          font-size: 2.5rem;
+          margin-bottom: 15px;
+          text-align: center;
+          color: #1a237e;
         }
 
         .section {
-          margin: 40px 0;
+          margin: 50px 0;
+          background: #fff;
+          border-radius: 16px;
+          padding: 30px;
+          box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+          color: #3949ab;
+          margin-bottom: 10px;
         }
 
         .card-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 25px;
-          animation: fadeIn 1.5s ease-in-out;
+          margin-top: 20px;
         }
 
         .card {
-          background: white;
+          background: #fefefe;
+          border: 1px solid #ddd;
           border-radius: 12px;
-          padding: 25px;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
-        }
-
-        .card h2 {
-          margin-top: 0;
-          color: #007acc;
-        }
-
-        .card p {
-          margin: 10px 0 0;
-          color: #444;
+          padding: 20px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+          transition: transform 0.2s ease;
         }
 
         .card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .card h3 {
+          margin: 0 0 10px;
+          font-size: 1.2rem;
+          color: #1565c0;
+        }
+
+        .card p {
+          margin: 0;
+          font-size: 0.95rem;
+          color: #333;
         }
       `}</style>
 
       <div className="app-container">
         <h1 className="heading">😂 Random Jokes</h1>
         <div className="section">
-          <p>Total Jokes: {jokes.length}</p>
+          <h2>Total Jokes: {jokes.length}</h2>
           <div className="card-grid">
             {jokes.map((joke) => (
               <div key={joke.id} className="card">
-                <h2>{joke.title}</h2>
+                <h3>{joke.title}</h3>
                 <p>{joke.joke}</p>
               </div>
             ))}
@@ -110,7 +103,7 @@ function App() {
         </div>
 
         <div className="section">
-          <h1 className="heading">📖 About Us</h1>
+          <h2>📖 About Us</h2>
           {about && (
             <div className="card">
               <p><strong>Message:</strong> {about.message}</p>
@@ -121,7 +114,7 @@ function App() {
         </div>
 
         <div className="section">
-          <h1 className="heading">📞 Contact Info</h1>
+          <h2>📞 Contact Info</h2>
           {contact && (
             <div className="card">
               <p><strong>Email:</strong> {contact.email}</p>
@@ -132,11 +125,11 @@ function App() {
         </div>
 
         <div className="section">
-          <h1 className="heading">🛒 Products</h1>
+          <h2>🛒 Products</h2>
           <div className="card-grid">
             {products.map((product) => (
               <div key={product.id} className="card">
-                <h2>{product.name}</h2>
+                <h3>{product.name}</h3>
                 <p>Price: {product.price}</p>
               </div>
             ))}
