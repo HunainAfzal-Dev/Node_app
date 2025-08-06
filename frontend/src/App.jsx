@@ -5,13 +5,13 @@ function App() {
   const [jokes, setJokes] = useState([])
   const [about, setAbout] = useState(null)
   const [contact, setContact] = useState(null)
-  const [products, setProducts] = useState([])
+  // const [products, setProducts] = useState([])
 
   useEffect(() => {
     axios.get('/api/jokes').then(res => setJokes(res.data)).catch(console.error)
     axios.get('/api/about').then(res => setAbout(res.data)).catch(console.error)
     axios.get('/api/contact').then(res => setContact(res.data)).catch(console.error)
-    axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error)
+    // axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error)
   }, [])
 
   return (
@@ -123,7 +123,7 @@ function App() {
           )}
         </div>
 
-        <div className="section">
+        {/* <div className="section">
           <h2>🛒 Products</h2>
           <div className="card-grid">
             {products.map((product) => (
@@ -133,7 +133,7 @@ function App() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )
