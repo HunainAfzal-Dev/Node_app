@@ -19,7 +19,6 @@ app.get('/api/jokes', (req, res) => {
         { id: 2, title: "Another joke", joke: 'Why don\'t eggs tell jokes? They\'re worried they\'ll crack each other up.' },
         { id: 3, title: "Scarecrow joke", joke: 'Why did the scarecrow win an award? Because he was outstanding in his field.' },
         { id: 4, title: "Lobster joke", joke: 'Why don\'t lobsters share? Because they\'re shellfish.' },
-        { id: 5, title: "Noodle joke", joke: 'What do you call a fake noodle? An impasta.' },        
     ];
     res.json(jokes);
 });
