@@ -14,10 +14,6 @@ function App() {
     axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error);
   }, []);
 
-  const fetchNewJokes = () => {
-    axios.get('/api/jokes').then(res => setJokes(res.data)).catch(console.error);
-  };
-
   return (
     <>
       <style>{`
@@ -44,23 +40,6 @@ function App() {
           text-align: center;
           color: #1a237e;
           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .refresh-button {
-          display: block;
-          margin: 20px auto;
-          padding: 10px 20px;
-          font-size: 1.2rem;
-          color: #fff;
-          background-color: #3949ab;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-        }
-
-        .refresh-button:hover {
-          background-color: #1a237e;
         }
 
         .section {
@@ -91,8 +70,6 @@ function App() {
           padding: 20px;
           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
-          position: relative;
-          overflow: hidden;
         }
 
         .card:hover {
@@ -112,22 +89,6 @@ function App() {
           color: #333;
         }
 
-        .card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.05);
-          transition: opacity 0.3s ease;
-          opacity: 0;
-        }
-
-        .card:hover::before {
-          opacity: 1;
-        }
-
         @media (max-width: 768px) {
           .heading {
             font-size: 2rem;
@@ -144,7 +105,6 @@ function App() {
       `}</style>
       <div className="app-container">
         <h1 className="heading">😂 Random Jokes</h1>
-        <button className="refresh-button" onClick={fetchNewJokes}>Get New Jokes</button>
         <div className="section">
           <h2>Total Jokes: {jokes.length}</h2>
           <div className="card-grid">
