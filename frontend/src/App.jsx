@@ -139,7 +139,7 @@ function App() {
           )}
         </div>
 
-        {/* <div className="section">
+        <div className="section">
           <h2>🛒 Products</h2>
           <div className="card-grid">
             {products.map((product) => (
@@ -149,7 +149,7 @@ function App() {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );
