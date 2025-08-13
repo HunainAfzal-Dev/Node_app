@@ -12,6 +12,12 @@ app.get('/', (req, res) => {
     res.send("Welcome to the Home Page");
 });
 
+
+// GET: Home Page
+app.get('/terms-condition', (req, res) => {
+    res.send("Welcome to Terms Condition ");
+});
+
 // GET: Jokes
 app.get('/api/jokes', (req, res) => {       
     const jokes = [
