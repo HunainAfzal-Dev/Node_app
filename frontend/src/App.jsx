@@ -128,7 +128,7 @@ function App() {
           )}
         </div>
 
-        {/* <div className="section">
+        <div className="section">
           <h2>📞 Contact Info</h2>
           {contact && (
             <div className="card">
@@ -137,7 +137,7 @@ function App() {
               <p><strong>Address:</strong> {contact.address}</p>
             </div>
           )}
-        </div> */}
+        </div>
 
         <div className="section">
           <h2>🛒 Products</h2>
