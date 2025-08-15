@@ -29,17 +29,6 @@ app.get('/api/jokes', (req, res) => {
     res.json(jokes);
 });
 
-// GET: testing
-app.get('/api/tests', (req, res) => {       
-    const jokes = [
-        { id: 1, title: "A joke", joke: 'Why don\'t scientists trust atoms? Because they make up everything.' },
-        { id: 2, title: "Another joke", joke: 'Why don\'t eggs tell jokes? They\'re worried they\'ll crack each other up.' },
-        { id: 3, title: "Scarecrow joke", joke: 'Why did the scarecrow win an award? Because he was outstanding in his field.' },
-        { id: 4, title: "Lobster joke", joke: 'Why don\'t lobsters share? Because they\'re shellfish.' },
-    ];
-    res.json(jokes);
-});
-
 // GET: About Page
 app.get('/api/about', (req, res) => {
     res.send({
