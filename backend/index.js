@@ -29,14 +29,14 @@ app.get('/api/jokes', (req, res) => {
     res.json(jokes);
 });
 
-// // GET: About Page
-// app.get('/api/about', (req, res) => {
-//     res.send({
-//         message: "This is the about page for our awesome Express server.",
-//         version: "1.0.0",
-//         author: "Your Name"
-//     });
-// });
+// GET: About Page
+app.get('/api/about', (req, res) => {
+    res.send({
+        message: "This is the about page for our awesome Express server.",
+        version: "1.0.0",
+        author: "Your Name"
+    });
+});
 
 // GET: Contact Info
 app.get('/api/contact', (req, res) => {
