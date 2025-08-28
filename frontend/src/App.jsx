@@ -134,7 +134,7 @@ function App() {
             <div className="card">
               <p><strong>Email:</strong> {contact.email}</p>
               <p><strong>Phone:</strong> {contact.phone}</p>
-              <p><strong>Address:</strong> {contact.address}</p>
+              {/* <p><strong>Address:</strong> {contact.address}</p> */}
             </div>
           )}
         </div>
