@@ -77,15 +77,15 @@ app.get('/api/services', (req, res) => {
     res.json(services);
 });
 
-// // GET: FAQ
-// app.get('/api/faq', (req, res) => {
-//     const faq = [
-//         { question: "How do I contact support?", answer: "You can email support@example.com or call +1-800-123-4567." },
-//         { question: "What is your refund policy?", answer: "We offer a 30-day money-back guarantee." },
-//         { question: "Do you offer custom solutions?", answer: "Yes, please contact sales for custom project inquiries." }
-//     ];
-//     res.json(faq);
-// });
+// GET: FAQ
+app.get('/api/faq', (req, res) => {
+    const faq = [
+        { question: "How do I contact support?", answer: "You can email support@example.com or call +1-800-123-4567." },
+        { question: "What is your refund policy?", answer: "We offer a 30-day money-back guarantee." },
+        { question: "Do you offer custom solutions?", answer: "Yes, please contact sales for custom project inquiries." }
+    ];
+    res.json(faq);
+});
 
 // GET: Hello
 app.get('/hello', (req, res) => {
