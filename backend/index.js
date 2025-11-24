@@ -57,6 +57,16 @@ app.get('/api/products', (req, res) => {
     res.json(products);
 });
 
+// GET: Team Members
+app.get('/api/team', (req, res) => {
+    const team = [
+        { id: 1, name: "Alice Johnson", role: "Project Manager" },
+        { id: 2, name: "Bob Smith", role: "Developer" },
+        { id: 3, name: "Charlie Brown", role: "Designer" }
+    ];
+    res.json(team);
+});
+
 // Start server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
