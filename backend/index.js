@@ -67,6 +67,31 @@ app.get('/api/team', (req, res) => {
     res.json(team);
 });
 
+// GET: Services
+app.get('/api/services', (req, res) => {
+    const services = [
+        { id: 1, name: "Web Development", description: "Building responsive and performant websites" },
+        { id: 2, name: "Mobile Apps", description: "Creating cross-platform mobile applications" },
+        { id: 3, name: "SEO Optimization", description: "Improving search engine rankings" }
+    ];
+    res.json(services);
+});
+
+// GET: FAQ
+app.get('/api/faq', (req, res) => {
+    const faq = [
+        { question: "How do I contact support?", answer: "You can email support@example.com or call +1-800-123-4567." },
+        { question: "What is your refund policy?", answer: "We offer a 30-day money-back guarantee." },
+        { question: "Do you offer custom solutions?", answer: "Yes, please contact sales for custom project inquiries." }
+    ];
+    res.json(faq);
+});
+
+// GET: Hello
+app.get('/hello', (req, res) => {
+    res.send("Hello! Welcome to our Express server.");
+});
+
 // Start server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
