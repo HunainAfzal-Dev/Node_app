@@ -6,12 +6,15 @@ function App() {
   const [about, setAbout] = useState(null);
   const [contact, setContact] = useState(null);
   const [products, setProducts] = useState([]);
+  const [team, setTeam] = useState([]);
 
   useEffect(() => {
     axios.get('/api/jokes').then(res => setJokes(res.data)).catch(console.error);
     axios.get('/api/about').then(res => setAbout(res.data)).catch(console.error);
     axios.get('/api/contact').then(res => setContact(res.data)).catch(console.error);
     axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error);
+    axios.get('/api/team').then(res => setTeam(res.data)).catch(console.error);
+    console.log(team)
   }, []);
 
   return (
