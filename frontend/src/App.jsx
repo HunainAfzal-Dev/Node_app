@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   const [jokes, setJokes] = useState([]);
@@ -9,12 +9,26 @@ function App() {
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/jokes').then(res => setJokes(res.data)).catch(console.error);
-    axios.get('/api/about').then(res => setAbout(res.data)).catch(console.error);
-    axios.get('/api/contact').then(res => setContact(res.data)).catch(console.error);
-    axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error);
-    axios.get('/api/team').then(res => setTeam(res.data)).catch(console.error);
-    console.log("team " , team) 
+    axios
+      .get("/api/jokes")
+      .then((res) => setJokes(res.data))
+      .catch(console.error);
+    axios
+      .get("/api/about")
+      .then((res) => setAbout(res.data))
+      .catch(console.error);
+    axios
+      .get("/api/contact")
+      .then((res) => setContact(res.data))
+      .catch(console.error);
+    axios
+      .get("/api/products")
+      .then((res) => setProducts(res.data))
+      .catch(console.error);
+    axios
+      .get("/api/team")
+      .then((res) => setTeam(res.data))
+      .catch(console.error);
   }, []);
 
   return (
@@ -124,9 +138,15 @@ function App() {
           <h2>📖 About Us</h2>
           {about && (
             <div className="card">
-              <p><strong>Message:</strong> {about.message}</p>
-              <p><strong>Version:</strong> {about.version}</p>
-              <p><strong>Author:</strong> {about.author}</p>
+              <p>
+                <strong>Message:</strong> {about.message}
+              </p>
+              <p>
+                <strong>Version:</strong> {about.version}
+              </p>
+              <p>
+                <strong>Author:</strong> {about.author}
+              </p>
             </div>
           )}
         </div>
@@ -135,8 +155,12 @@ function App() {
           <h2>📞 Contact Info</h2>
           {contact && (
             <div className="card">
-              <p><strong>Email:</strong> {contact.email}</p>
-              <p><strong>Phone:</strong> {contact.phone}</p>
+              <p>
+                <strong>Email:</strong> {contact.email}
+              </p>
+              <p>
+                <strong>Phone:</strong> {contact.phone}
+              </p>
               {/* <p><strong>Address:</strong> {contact.address}</p> */}
             </div>
           )}
@@ -149,6 +173,18 @@ function App() {
               <div key={product.id} className="card">
                 <h3>{product.name}</h3>
                 <p>Price: {product.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="section">
+          <h2>Team: {team.length}</h2>
+          <div className="card-grid">
+            {team.map((team) => (
+              <div key={team.id} className="card">
+                <h3>{team.name}</h3>
+                <p>{team.role}</p>
               </div>
             ))}
           </div>
