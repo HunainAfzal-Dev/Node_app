@@ -14,7 +14,7 @@ function App() {
     axios.get('/api/contact').then(res => setContact(res.data)).catch(console.error);
     axios.get('/api/products').then(res => setProducts(res.data)).catch(console.error);
     axios.get('/api/team').then(res => setTeam(res.data)).catch(console.error);
-    console.log(team)
+    console.log("team " , team) 
   }, []);
 
   return (
