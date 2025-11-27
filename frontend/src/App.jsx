@@ -7,6 +7,8 @@ function App() {
   const [contact, setContact] = useState(null);
   const [products, setProducts] = useState([]);
   const [team, setTeam] = useState([]);
+  const [services, setServices] = useState([]);
+  const [faq, setFaq] = useState([]);
 
   useEffect(() => {
     axios
@@ -28,6 +30,14 @@ function App() {
     axios
       .get("/api/team")
       .then((res) => setTeam(res.data))
+      .catch(console.error);
+    axios
+      .get("/api/services")
+      .then((res) => setServices(res.data))
+      .catch(console.error);
+    axios
+      .get("/api/faq")
+      .then((res) => setFaq(res.data))
       .catch(console.error);
   }, []);
 
@@ -181,10 +191,34 @@ function App() {
         <div className="section">
           <h2>Team: {team.length}</h2>
           <div className="card-grid">
-            {team.map((team) => (
-              <div key={team.id} className="card">
-                <h3>{team.name}</h3>
-                <p>{team.role}</p>
+            {team.map((member) => (
+              <div key={member.id} className="card">
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="section">
+          <h2>🛠️ Services</h2>
+          <div className="card-grid">
+            {services.map((service) => (
+              <div key={service.id} className="card">
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="section">
+          <h2>❓ FAQ</h2>
+          <div className="card-grid">
+            {faq.map((item) => (
+              <div key={item.question} className="card">
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
               </div>
             ))}
           </div>
